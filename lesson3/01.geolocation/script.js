@@ -1,21 +1,17 @@
 'use strict';
 
 if (navigator.geolocation) {
-    const successCallback = (position) => {
-        console.log('position', position);
-        
-        const link = document.createElement('a');
+    const successCallBack = (position) => {
+	console.log('position', position);
+	const link = document.createElement('a');
+	link.href = `https://www.latlong.net/c/?lat=$
+	{position.coords.latitude}&long=${position.coords.longitude}`
 
-        link.href =`https://www.latlong.net/c/?lat=$
-        {position.coords.latitude}&long=${position.coords.longitude}`;
-        link.innerText = 'Click here to see your position';
-
-        document.querySelector('body').appendChild(link);
+	link.innerText = 'Click here to see your position';
+	document.querySelector('body').appendChild(link);
     }
-
-    const errorCallback = (error) => {
-        console.log('error', error);
+    const errorCallBack = (error) => {
+	console.log('error', error);
     }
-
-    navigator.geolocation.getCurrentPosition(successCallback, errorCallback);
+    navigator.geolocation.getCurrentPosition(successCallBack, errorCallBack);
 }
