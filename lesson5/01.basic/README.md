@@ -1,1 +1,1 @@
-# Fonctionnalités de base
+# Foctionnalités de base
